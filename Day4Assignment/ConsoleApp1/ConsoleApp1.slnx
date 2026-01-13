@@ -1,7 +1,7 @@
 <Solution>
   <Folder Name="/week2/">
     <Project Path="Day6/UseLibrarySolution.csproj" />
-    <Project Path="FrameworkConsoleApp/FrameworkConsoleApp.csproj" />
+    <Project Path="FrameworkConsoleApp/FrameworkConsoleApp.csproj" Id="83d13251-0e79-4206-ac13-3ce26109743f" />
     <Project Path="MyClassLibrary/MyClassLibrary.csproj" />
   </Folder>
 </Solution>
