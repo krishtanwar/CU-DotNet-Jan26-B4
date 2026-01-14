@@ -80,6 +80,7 @@ namespace DotNetLearning
             // IsnullorEmpty and IsnullorWhiteSpace
 
             Console.WriteLine(string.IsNullOrEmpty(name));
+            cw
         }
 
     }
