@@ -1,4 +1,4 @@
-﻿namespace Employee
+﻿namespace Employees
 {
             class Employee
     {
@@ -50,13 +50,6 @@
         public static void Main(string[] args)
 
         {
-            //Console.WriteLine();
-            //Person person1=new Person();
-            ////every class has some predefined functions in it
-            //person1.Setname("krish");
-            //person1.displaynName();
-
-            //person1.Age = 10;
             Employee emp = new Employee();
             emp.Name = "krish";
             emp.Department = "Sales";
