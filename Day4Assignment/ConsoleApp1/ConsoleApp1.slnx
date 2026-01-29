@@ -1,6 +1,7 @@
 <Solution>
   <Folder Name="/week2/">
     <Project Path="Day6/UseLibrarySolution.csproj" />
+    <Project Path="DotNetLearning/DotNetLearning.csproj" Id="d3fd2cb6-5c15-4888-8ce2-7c50ecc1c61e" />
     <Project Path="FrameworkConsoleApp/FrameworkConsoleApp.csproj" Id="83d13251-0e79-4206-ac13-3ce26109743f" />
     <Project Path="MyClassLibrary/MyClassLibrary.csproj" />
   </Folder>
