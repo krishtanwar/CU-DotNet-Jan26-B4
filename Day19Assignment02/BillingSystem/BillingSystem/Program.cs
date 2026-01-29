@@ -1,95 +1,117 @@
-﻿namespace BillingSystem
+﻿namespace Day19_02AbstractOverride
 {
-
-
     abstract class UtilityBill
     {
         public int ConsumerId { get; set; }
-
-        public string Consumername { get; set; }
-
+        public string ConsumerName { get; set; }
         public decimal UnitsConsumed { get; set; }
+        public decimal RatePerUnit { get; set; }
 
-        public decimal RatePerunit { get; set; }
-
-        
+        protected UtilityBill(int id, string name, decimal units, decimal rate)
+        {
+            ConsumerId = id;
+            ConsumerName = name;
+            UnitsConsumed = units;
+            RatePerUnit = rate;
+        }
 
         public abstract decimal CalculateBillAmount();
 
-        public virtual decimal CalculateTax(decimal BillAmount)
+        public virtual decimal CalculateTax(decimal billAmount)
         {
-            return BillAmount * 0.95m;
+            return billAmount * 0.05m;
+
         }
 
         public void PrintBill()
         {
-            Console.WriteLine($"Name of the customer: {Consumername}");
+            decimal billAmount = CalculateBillAmount();
+            decimal tax = CalculateTax(billAmount);
+            decimal finalAmount = billAmount + tax;
+
+            Console.WriteLine("__Utility Bill__");
             Console.WriteLine($"Consumer Id: {ConsumerId}");
-            Console.WriteLine($"Total Units Consumed: {UnitsConsumed}");
-            Console.WriteLine($"The final bill amount will be: {CalculateTax(CalculateBillAmount())}");
+            Console.WriteLine($"Consumer Name: {ConsumerName}");
+            Console.WriteLine($"Units Consumed: {UnitsConsumed}");
+            Console.WriteLine($"Final Amount: {finalAmount}");
         }
     }
 
     class ElectricityBill : UtilityBill
     {
-
-        protected ElectricityBill(int id, string name, decimal u, decimal r)
+        public ElectricityBill(int id, string name, decimal units, decimal rate) : base(id, name, units, rate)
         {
             ConsumerId = id;
-            Consumername = name;
-            UnitsConsumed = u;
-            RatePerunit = r;
+            ConsumerName = name;
+            UnitsConsumed = units;
+            RatePerUnit = rate;
         }
+
         public override decimal CalculateBillAmount()
         {
-            decimal billAmount=UnitsConsumed*RatePerunit;
+            decimal billAmount = UnitsConsumed * RatePerUnit;
             if (UnitsConsumed > 300)
             {
-                return billAmount * 1.1m;
+                billAmount += billAmount * 0.1m;
             }
-            else return billAmount;
+            return billAmount;
         }
+        //Do not override CalculateTax
     }
-
     class WaterBill : UtilityBill
     {
-        protected WaterBill(int id, string name, decimal u, decimal r)
+        public WaterBill(int id, string name, decimal units, decimal rate) : base(id, name, units, rate)
         {
             ConsumerId = id;
-            Consumername = name;
-            UnitsConsumed = u;
-            RatePerunit = r;
+            ConsumerName = name;
+            UnitsConsumed = units;
+            RatePerUnit = rate;
+        }
+        public override decimal CalculateBillAmount()
+        {
+            return RatePerUnit * UnitsConsumed;
+        }
+
+        public override decimal CalculateTax(decimal billAmount)
+        {
+            return billAmount * 0.02m;
+        }
+
+    }
+    class GasBill : UtilityBill
+    {
+        public GasBill(int id, string name, decimal units, decimal rate) : base(id, name, units, rate)
+        {
+            ConsumerId = id;
+            ConsumerName = name;
+            UnitsConsumed = units;
+            RatePerUnit = rate;
         }
 
         public override decimal CalculateBillAmount()
         {
-            return UnitsConsumed * RatePerunit;
+            return RatePerUnit * UnitsConsumed;
         }
-        public override decimal CalculateTax(decimal BillAmount)
+
+        public override decimal CalculateTax(decimal billAmount)
         {
-            return BillAmount * 0.98m;
-
+            return 0m;
         }
-
-      
-    }
-
-    class GasBill : UtilityBill
-    {
-        protected GasBill(int id, string name, decimal u, decimal r)
-        {
-            ConsumerId = id;
-            Consumername = name;
-            UnitsConsumed = u;
-            RatePerunit = r;
-        }
-
     }
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            List<UtilityBill> bills = new List<UtilityBill>();
+
+            bills.Add(new ElectricityBill(101, "Amit", 350, 6.5m));
+            bills.Add(new WaterBill(102, "Rahul", 200, 4.0m));
+            bills.Add(new GasBill(103, "Sita", 150, 5.0m));
+
+            foreach (var bill in bills)
+            {
+                bill.PrintBill();
+            }
         }
     }
 }
