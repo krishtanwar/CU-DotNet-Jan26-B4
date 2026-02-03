@@ -19,10 +19,19 @@ namespace SortedDict
             Console.WriteLine("-------------------------");
             Console.WriteLine($"The Topper of the Leaderboard is: {leaderboard.First()}");
 
-            leaderboard.Remove(58.91);
+            double val = -1;
+            foreach (var item in leaderboard)
+            {
+                
+                if(item.Value=="SteadyEddie") val=item.Key;
 
-            leaderboard.Add(54, "SteadyEddie");
-            Console.WriteLine("-------------------------");
+
+            }
+            if (val != -1)
+            {
+                leaderboard.Remove(val);
+                leaderboard.Add(54.00, "SteadyEddie");
+            }
 
             Console.WriteLine("After Updation: ");
 
