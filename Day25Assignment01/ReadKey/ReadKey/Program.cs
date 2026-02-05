@@ -40,7 +40,7 @@ namespace ReadKey
             }
             
                 Console.WriteLine();
-            Console.WriteLine("\nYour PIN is:");
+            Console.WriteLine("Your PIN is:");
             for (int j=0; j < ch.Length; j++)
             {
                 Console.Write(ch[j]);
