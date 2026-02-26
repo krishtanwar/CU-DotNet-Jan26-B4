@@ -11,7 +11,6 @@
             public static int AccessCount { get; set; }
             public static bool IsInitialized { get; set; }
 
-            // Static Constructor
             static ApplicationConfig()
             {
                 ApplicationName = "MyApp";
@@ -22,7 +21,6 @@
                 Console.WriteLine("Static constructor executed");
             }
 
-            // Static Method: Initialize
             public static void Initialize(string appName, string environment)
             {
                 ApplicationName = appName;
@@ -31,7 +29,6 @@
                 AccessCount++;
             }
 
-            // Static Method: GetConfigurationSummary
             public static string GetConfigurationSummary()
             {
                 AccessCount++;
@@ -42,7 +39,6 @@
                        $"Is Initialized   : {IsInitialized}";
             }
 
-            // Static Method: ResetConfiguration
             public static void ResetConfiguration()
             {
                 ApplicationName = "MyApp";
