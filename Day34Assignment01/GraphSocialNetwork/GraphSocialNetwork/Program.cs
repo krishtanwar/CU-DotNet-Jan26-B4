@@ -19,12 +19,12 @@
         public void AddFriend(Person p)
         {
             if (p == null || p == this)
-                return; // prevent null or self-friendship
+                return; 
 
             if (!friends.Contains(p))
             {
                 friends.Add(p);
-                p.AddFriend(this); // reciprocal friendship
+                p.AddFriend(this); 
             }
         }
     }
