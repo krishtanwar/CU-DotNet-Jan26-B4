@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <script>
+
+        function addNumbers(){
+            let n1=document.getElementById("num1").value;
+            let n2=document.getElementById("num2").value;
+
+            let sum=Number(n1)+Number(n2);
+            if(n1!=""&&n2!="" &&!isNaN(n1)&&!isNaN(n2)){
+            document.getElementById("result").value=sum;}
+            else{
+                document.getElementById("result").value="Error"
+                document.getElementById("result").style.backgroundColor="orange";
+            }
+        }
+        function changeColor(field){
+
+let value = field.value;
+
+if(value === ""){
+    field.style.backgroundColor = "red";
+}
+else{
+
+    let num = Number(value);
+
+    if(typeof num === "number" && !isNaN(num)){
+        field.style.backgroundColor = "white";
+    }
+    else{
+        field.style.backgroundColor = "yellow";
+    }
+
+}
+
+}
+    </script>
+</head>
+<body>
+    <table class="table table-primary">
+        <tr>
+            <td>
+                <input type="text" id ="num1" pattern="[0-9]{0,}" onblur="changeColor(this)">
+            </td>
+            <td>
+                <label>+</label>
+            </td>
+            <td>
+                <input type="text" id="num2" pattern="[0-9]{0,}" onblur="changeColor(this)">
+            </td>
+            <td>
+                <input type="button" value="=" onclick="addNumbers()">
+            </td>
+            <td>
+                <input type="text" id="result" value="Error" readonly onblur="changeColor(this)">
+            </td>
+        </tr>
+    </table>
+         <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+</html>

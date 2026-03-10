@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function showName(){
+            var en=document.getElementById('ename');
+            alert(en.value);
+            
+        }
+        function showData(){
+            let skills=document.getElementsByName('skills');
+            let result="\n";
+            result+="Name: "+document.getElementById("ename").value+"\n";
+            result+="Pan Number: "+document.getElementById("epan").value+"\n"
+            result+="Gender: "+(document.getElementById("male").checked?"Male":"Female")+"\n";
+            result+="City: "+document.getElementById("city").value+"\n";
+            result+="Email: "+document.getElementById("eemail").value+"\n";
+            result+="Date Of Birth: "+document.getElementById("dob").value+"\n";
+            result+="Age: "+document.getElementById("age").value+"\n";
+            result+="Selected Skills: "+"\n";
+            for(let index=0;index<skills.length;index++){
+                const skill=skills[index];
+                if(skill.checked){
+                    result+=skill.value +"   ";
+                    
+                }
+            }
+            console.log(result);
+            alert(result);
+        }
+    </script>
+</head>
+<body>
+    <h1>Employee Registration Form</h1>
+    <form onsubmit="showData(); return false;">
+        <table>
+            <tr>
+                <td>
+                    <label>Enter Your Name</label>
+                </td>
+                <td>
+                    <input type="text"
+                    pattern="^[A-Z]{1}[a-z]{1,}$"
+                    name="ename" id="ename" >
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Enter Your PAN</label>
+                </td>
+                <td>
+                    <input type="text"
+                    pattern="^[A-Z]{5}[0-9]{4}[A-Z]{1}$"
+                    name="epan" id="epan" >
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    <label>Select Gender</label>
+                </td>
+                <td>
+                    <input type="radio" name="gender" id="male" value="M" ><label for="male">Male</label>
+                    <input type="radio" name="gender" id="female" value="F"/><label for="female">Female</label>
+                </td>
+            </tr>
+             <tr>
+                <td>
+                    <label>Select City</label>
+                </td>
+                <td>
+                   <select id="city" name="city" >
+                    <option value="">Select</option>
+                    <option value="Delhi">Delhi</option>
+                    <option value="Mumbai"> Mumbai</option>
+                    <option value="Kolkata">Kolkata</option>
+                    <option value="Chennai">Chennai</option>
+                    <option value="Ahmedabad">Ahmedabad</option>
+                   </select>
+                </td>
+            </tr>
+            </tr>
+             <tr>
+            <td>Select Skills</td>
+
+            <td>
+                <input type="checkbox" name="skills" value="HTML" id="0"> HTML 
+                <input type="checkbox" name="skills" value="CSS" id="1"> CSS 
+                <input type="checkbox" name="skills" value="JavaScript" id="2"> JavaScript 
+                <input type="checkbox" name="skills" value="C#" id="3"> C# 
+                <input type="checkbox" name="skills" value="React" id="4"> React
+            </td>
+        </tr>
+            <tr>
+                <td>
+                    <label>Enter Your Email</label>
+                </td>
+                <td>
+                    <input type="email" name="eemail" id="eemail" 
+                    placeholder="abcd@gmail.com"
+                     />
+                </td>
+            </tr>
+            </tr>
+            <tr>
+                <td>
+                    <label>Select DateOfBirth</label>
+                </td>
+                <td>
+                    <input type="date" name="dob" id="dob" min="2000-01-01" max="2010-12-31"/>
+                </td>
+            </tr>
+        <tr>
+                <td>
+                    <label>Select Age</label>
+                </td>
+                <td>
+                    <input type="number" name="age" id="age">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit">
+                    <input type="reset"/>
+                </td>
+                <td>
+                   
+                </td>
+            
+        </table>
+    </form>
+    
+</body>
+</html>
