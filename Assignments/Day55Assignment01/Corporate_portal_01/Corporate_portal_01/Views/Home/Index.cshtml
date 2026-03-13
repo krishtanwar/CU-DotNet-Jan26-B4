@@ -1,0 +1,51 @@
+﻿@model List<Corporate_portal_01.Models.Employee>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1 class="text-center">Employee Pulse Portal</h1>
+<div class="alert alert-danger text-center">
+<strong>Announcement --></strong> 
+<small>@ViewBag.Announcement</small>
+</div>
+
+    @if((bool)ViewData["Server_Status"])
+    {
+        <h2 class="alert-info text-center"> Department Status -- > Active </h2>
+        
+    }
+    else
+    {
+    <h2 class="alert-info text-center"> Department Status -- > Under Maintenance </h2>
+    }
+    <table class=" table table-primary table-striped">
+        <thead>
+            <tr>
+            <th>
+               Employee ID              
+            </th>
+            <th>
+                Employee Name
+            </th>
+            <th>
+                Employee Position
+            </th>
+            <th>
+                Employee Salary
+            </th>
+            </tr>
+            
+        </thead>
+        <tbody>
+        @foreach(var emp in Model)
+        {
+            <tr>
+                <td>@emp.EmployeeId</td>
+                <td>@emp.EmployeeName</td>
+                <td>@emp.EmployeePosition</td>
+                <td>@emp.Salary</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+
