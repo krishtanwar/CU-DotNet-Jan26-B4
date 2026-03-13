@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Passport Application</h1>
+    <form>
+    <table>
+        <tr>
+            <td>
+                <label>Enter First Name</label>
+            </td>
+            <td>
+                <input type="text" pattern="[A-Z]{1}[a-z]{1,}" id="fname" name="fname" required/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Enter Middle Name</label>
+            </td>
+            <td>
+                <input type="text" pattern="[A-Z]{1}[a-z]{1,}" id="mname" name="mname"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Enter Last Name</label>
+            </td>
+            <td>
+                <input type="text" pattern="[A-Z]{1}[a-z]{1,}" id="lname" name="lname" required/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Select Date Of Birth</label>
+            </td>
+            <td>
+                <input type="date" id="age" name="age" required >
+            </td>
+        </tr>
+        <tr>
+            <td>Gender</td>
+            <td>
+                <input type="radio" name="gender" id="male" required> Male 
+                <input type="radio" name="gender" id="male" required> Female
+                <input type="radio" name="gender" id="male" required> Other
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Enter Father Name</label>
+            </td>
+            <td>
+                <input type="text" pattern="[A-Z]{1}[a-z]{1,}" id="Ftname" name="ftname" required/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <label>Enter Mother Name</label>
+            </td>
+            <td>
+                <input type="text" id="mtname" name="mtname" pattern="[A-Z]{1}[a-z]{1,}" required/>
+            </td>
+        </tr>
+        <tr>
+            <td>Marital Status</td>
+            <td>
+                <input type="radio" name="status" id="married" required > Married
+                <input type="radio" name="status" id="unmarried" required> Unmarried
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Enter your Email</label>
+            </td>
+            <td>
+                <input type="email" id="email" name="email" 
+                placeholder="abc@gmail.com"/>
+            </td>
+        </tr>
+        <tr>
+            <td>Mobile Number</td>
+            <td><input type="tel" placeholder="Enter mobile number" min="6000000000" max="9999999999" id="mob" name="mob"></td>
+        </tr>
+         <tr>
+            <td>Enter your Address</td>
+            <td><textarea rows="3" cols="30"  ></textarea></td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit">
+                <input type="reset">
+            </td>
+        </tr>
+    </table>
+    </form>
+</body>
+</html>
