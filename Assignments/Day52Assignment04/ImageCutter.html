@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function change(field){
+            var bulb = document.getElementById("bulb");
+
+    if(field.id === "on"){
+        bulb.src = "images/bulb_on.jpg";
+    }
+    else if(field.id === "off"){
+        bulb.src = "images/bulb_off.jpg";
+    }
+        }
+    </script>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>
+                <button onclick="change(this)" id="on">Turn On The Light</button>
+            </td>
+            <td>
+                 <img src="/images/bulb_off.jpg" alt="Image of Bulb" style="width: 100px; height: 100px;" id="bulb">
+            </td>
+            <td>
+                <button onclick="change(this)" id="off">Turn Off The Light</button>
+            </td>
+        </tr>
+    </table>
+
+    
+</body>
+</html>
