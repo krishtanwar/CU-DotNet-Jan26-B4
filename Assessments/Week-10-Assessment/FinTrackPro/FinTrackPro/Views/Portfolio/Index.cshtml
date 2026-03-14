@@ -1,0 +1,43 @@
+﻿@model List<FinTrackPro.Models.Assets>
+
+<h2>Portfolio</h2>
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["Message"]
+    </div>
+}
+
+@{
+    double total = (double)ViewData["Total"];
+    double newTotal = total + 500;
+}
+
+<p>Total Portfolio Value: @total</p>
+<p>Total + 500: @newTotal</p>
+
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Total</th>
+        <th>Action</th>
+    </tr>
+
+    @foreach (var asset in Model)
+    {
+        <tr>
+            <td>@asset.Name</td>
+            <td>@asset.Price</td>
+            <td>@asset.Quantity</td>
+            <td>@asset.TotalValue</td>
+
+            <td>
+                <a asp-action="Details" asp-route-id="@asset.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@asset.Id">Delete</a>
+            </td>
+        </tr>
+    }
+</table>

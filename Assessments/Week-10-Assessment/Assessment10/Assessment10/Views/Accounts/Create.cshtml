@@ -1,0 +1,23 @@
+﻿@model Account
+
+<h2>Create Account</h2>
+
+<form asp-action="Create" method="post">
+
+    <div class="mb-3">
+        <label>Account Name</label>
+        <input asp-for="AccountName" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label>Balance</label>
+        <input asp-for="Balance" class="form-control" />
+    </div>
+
+    <button class="btn btn-primary">Create</button>
+
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

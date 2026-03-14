@@ -1,0 +1,71 @@
+﻿@model List<Account>
+
+<h2>Accounts</h2>
+
+<a asp-action="Create" class="btn btn-primary mb-3">Add Account</a>
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["Success"]
+    </div>
+}
+
+@foreach (var account in Model)
+{
+
+    <div class="card mb-4">
+
+        <div class="card-header d-flex justify-content-between bg-dark text-white">
+
+            <span>Account : @account.AccountName</span>
+
+            <div>
+                <a asp-action="Edit" asp-route-id="@account.Id"
+                   class="btn btn-warning btn-sm">Edit</a>
+
+                <a asp-action="Delete" asp-route-id="@account.Id"
+                   class="btn btn-danger btn-sm">Delete</a>
+            </div>
+
+        </div>
+
+        <div class="card-body">
+
+            <h5>Balance : @account.Balance</h5>
+
+            <table class="table table-bordered">
+
+                <tr>
+                    <th>Description</th>
+                    <th>Amount</th>
+                    <th>Category</th>
+                    <th>Date</th>
+                </tr>
+
+                @if (account.Transactions != null && account.Transactions.Count > 0)
+                {
+                    foreach (var t in account.Transactions)
+                    {
+                        <tr>
+                            <td>@t.Description</td>
+                            <td>@t.Amount</td>
+                            <td>@t.Category</td>
+                            <td>@t.Date.ToShortDateString()</td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="4">No Transactions</td>
+                    </tr>
+                }
+
+            </table>
+
+        </div>
+
+    </div>
+
+}

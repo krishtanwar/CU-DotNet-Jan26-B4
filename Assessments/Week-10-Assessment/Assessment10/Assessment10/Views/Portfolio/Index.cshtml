@@ -1,0 +1,41 @@
+﻿@model List<Asset>
+
+<h2>Portfolio</h2>
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["Message"]
+    </div>
+}
+
+@{
+    double total = (double)ViewData["Total"];
+}
+
+<h4>Total Portfolio + 500 = @(total + 500)</h4>
+
+<table class="table">
+
+    <tr>
+        <th>Name</th>
+        <th>Value</th>
+        <th>Action</th>
+    </tr>
+
+    @foreach (var a in Model)
+    {
+        <tr>
+            <td>@a.Name</td>
+            <td>@a.Value</td>
+
+            <td>
+                <a asp-action="Details" asp-route-id="@a.Id" class="btn btn-info">Details</a>
+
+                <a asp-action="Delete" asp-route-id="@a.Id" class="btn btn-danger">Delete</a>
+            </td>
+
+        </tr>
+    }
+
+</table>
