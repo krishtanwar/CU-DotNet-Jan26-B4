@@ -1,0 +1,82 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+}
+
+
+<div class="container-fluid overflow-hidden mb-0">
+    <div class="row vh-100">
+
+        
+        <div class="col-md-6 d-flex align-items-center justify-content-center">
+            <section style="width: 80%; max-width: 400px;">
+
+                <form id="account" method="post">
+                    <h2 class="mb-3">Log In</h2>
+                    <hr />
+
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="form-floating mb-3">
+                        <input asp-for="Input.Email" class="form-control" placeholder="name@example.com" />
+                        <label asp-for="Input.Email">Email</label>
+                        <span asp-validation-for="Input.Email" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input asp-for="Input.Password" class="form-control" placeholder="password" />
+                        <label asp-for="Input.Password">Password</label>
+                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" asp-for="Input.RememberMe" />
+                        <label class="form-check-label" asp-for="Input.RememberMe">
+                            @Html.DisplayNameFor(m => m.Input.RememberMe)
+                        </label>
+                    </div>
+
+                    <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">
+                        Log in
+                    </button>
+
+                    <div class="mt-3">
+                        <p>
+                            <a asp-page="./ForgotPassword">Forgot your password?</a>
+                        </p>
+                        <p>
+                            <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">
+                                Register as a new user
+                            </a>
+                        </p>
+                        <p >
+                            <a asp-page="./ResendEmailConfirmation">
+                                Resend email confirmation
+                            </a>
+                        </p>
+                    </div>
+
+                </form>
+
+            </section>
+        </div>
+
+        
+        <div class="col-md-6 d-none d-md-block px-0 overflow-hidden mb-0" style="height: 100vh; overflow: hidden;">
+            <img src="https://img.freepik.com/premium-photo/bmw-f10-m5-custom-widebody-realistic-photo-black-car-with-dark-background-rain_1305056-119768.jpg?semt=ais_rp_progressive&w=740&q=80"
+                 alt="Login image"
+                 class="w-80 h-80 mt-xl-5"
+                 style="object-fit: cover;">
+                 <h5 class="text-center">At OnlyCars We provide you a variety of Cars To Buy
+                     And Best Price For Your Car To Sell
+                 </h5>
+        </div>
+
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
