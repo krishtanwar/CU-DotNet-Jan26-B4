@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Cart Controller - Index</h1>
+
+<form method="get" asp-action="Index">
+    <label>Select Promo Code:</label>
+
+    <select name="selectedPromo" onchange="this.form.submit()">
+        @foreach (var code in ViewBag.PromoCodes)
+        {
+            <option value="@code" selected="@(code == ViewBag.SelectedPromo)">
+                @code
+            </option>
+        }
+    </select>
+</form>
+
+<hr />
+
+<p>Product: Fan</p>
+<p>Base Price: ₹@ViewBag.BasePrice</p>
+<p>Final Price: ₹@ViewBag.FinalPrice</p>
+

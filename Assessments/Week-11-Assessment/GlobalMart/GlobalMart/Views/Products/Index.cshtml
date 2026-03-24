@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Products Controller - Index</h1>
+
+@foreach (var item in ViewBag.Products)
+{
+    <form method="get" asp-action="Index">
+        <input type="hidden" name="productId" value="@item.ProductId" />
+
+        <p><strong>@item.ProductName</strong></p>
+        <p>Base Price: ₹@item.BasePrice</p>
+
+        <select name="selectedPromo" onchange="this.form.submit()">
+            @foreach (var code in ViewBag.PromoCodes)
+            {
+                <option value="@code" selected="@(code == item.SelectedPromo)">
+                    @code
+                </option>
+            }
+        </select>
+
+        <p>Final Price: ₹@item.FinalPrice</p>
+        <hr />
+    </form>
+}
