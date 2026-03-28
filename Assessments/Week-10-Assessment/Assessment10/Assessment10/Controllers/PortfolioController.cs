@@ -5,11 +5,11 @@ public class PortfolioController : Controller
 {
 
     private static List<Asset> assets = new List<Asset>()
-{
-new Asset{ Id = 1, Name="Krish", Value = 2000},
-new Asset{ Id = 2, Name="Upkaar", Value = 3000},
-new Asset{ Id = 3, Name="harsh", Value = 4000}
-};
+    {
+        new Asset{ Id = 1, Name="Krish", Value = 2000},
+        new Asset{ Id = 2, Name="Upkaar", Value = 3000},
+        new Asset{ Id = 3, Name="harsh", Value = 4000}
+    };
 
     public IActionResult Index()
     {
