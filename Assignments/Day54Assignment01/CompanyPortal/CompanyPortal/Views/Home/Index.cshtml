@@ -1,0 +1,57 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container mt-4">
+
+
+    <div class="p-5 mb-4 bg-light rounded-3 text-center">
+        
+        <h1 class="display-5">Welcome to Our Website</h1>
+        <p class="lead">We provide consulting, training, and innovative products.</p>
+        <a asp-controller="Services" asp-action="Index" class="btn btn-primary btn-lg">
+            Explore Services
+        </a>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Consulting</h5>
+                    <p class="card-text">Expert consulting services for businesses.</p>
+                    <a asp-controller="Services" asp-action="Consulting" class="btn btn-success">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Training</h5>
+                    <p class="card-text">Professional training programs.</p>
+                    <a asp-controller="Services" asp-action="Training" class="btn btn-warning">
+                        View Training
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Products</h5>
+                    <p class="card-text">Software and tools to improve productivity.</p>
+                    <a asp-controller="Products" asp-action="Index" class="btn btn-danger">
+                        View Products
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
