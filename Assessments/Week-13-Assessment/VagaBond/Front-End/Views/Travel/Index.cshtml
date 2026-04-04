@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Front_End.Models.Destination>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.CityName</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">@item.Country</h6>
+
+                        <p class="card-text">
+                            @item.Description
+                        </p>
+
+                        <p>
+                            <strong>Rating:</strong> @item.Rating ⭐
+                        </p>
+
+                        <p>
+                            <strong>Last Visited:</strong> @item.LastVisited.ToShortDateString()
+                        </p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

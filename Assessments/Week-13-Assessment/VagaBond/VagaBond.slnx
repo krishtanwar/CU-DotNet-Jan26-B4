@@ -1,0 +1,6 @@
+<Solution>
+  <Folder Name="/Services/">
+    <Project Path="Back-End/Back-End.csproj" />
+    <Project Path="Front-End/Front-End.csproj" />
+  </Folder>
+</Solution>
