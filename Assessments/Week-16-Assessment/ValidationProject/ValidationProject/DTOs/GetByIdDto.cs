@@ -1,6 +1,6 @@
-﻿namespace ValidationProject.Models
+﻿namespace ValidationProject.DTOs
 {
-    public class Course
+    public class GetByIdDto
     {
         public int Id { get; set; }
         public string Title { get; set; }
